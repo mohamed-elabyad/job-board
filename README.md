@@ -132,10 +132,10 @@ npm install
 
 ### 3. Environment Setup:
 Copy .env.example to .env and update database credentials:
-cp .env.example .env 
+&& cp .env.example .env 
 
-Generate application key:
-php artisan key:generate
+&& Generate application key:
+&& php artisan key:generate
 
 ### 4. Database Setup
 
