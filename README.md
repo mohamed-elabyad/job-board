@@ -121,7 +121,7 @@ It allows users to browse jobs, apply with CVs, and for employers to post and ma
 
 ### 1. Clone the Repository  
 bash:
-git clone https://github.com/your-username/job-board.git
+git clone https://github.com/mohamed-elabyad/job-board.git
 cd job-board
 
 ### 2. Install Dependencies:
