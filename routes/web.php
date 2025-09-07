@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\ApplicationsController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\MyJobController;
+use Illuminate\Auth\Events\Logout;
 use Illuminate\Container\Attributes\Log;
 use Illuminate\Routing\RouteRegistrar;
 use Illuminate\Support\Facades\Route;
@@ -33,12 +35,12 @@ Route::middleware('auth')->group(function () {
     Route::resource('my-jobs', MyJobController::class)->middleware('employer');
 });
 
-Route::middleware('guest')->group(function () {
-    Route::resource('login', LoginController::class)
-        ->only(['create', 'store']);
 
-    Route::resource('register', RegisterController::class)
-        ->only(['create', 'store']);
-});
+Route::get('login', [LoginController::class, 'loginPage'])->middleware('guest')->name('login');
+Route::post('login', [LoginController::class, 'login'])->middleware('guest')->name('login.store');
 
-Route::delete('logout', [LoginController::class, 'destroy'])->name('logout')->middleware('auth');
+Route::post('logout', LogoutController::class)->middleware('auth')->name('logout');
+
+Route::resource('register', RegisterController::class)
+    ->only(['create', 'store'])
+    ->middleware('guest');

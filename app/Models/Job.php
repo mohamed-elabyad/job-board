@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\OfferedJobsCategoryEnum;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -10,11 +11,20 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Query\Builder as qBuilder;
+use App\Enums\OfferedJobsExperienceEnum;
 
 class Job extends Model
 {
     /** @use HasFactory<\Database\Factories\JobFactory> */
     use HasFactory, SoftDeletes;
+
+    protected function casts(): array
+    {
+        return [
+            'experience' => OfferedJobsExperienceEnum::class,
+            'category' => OfferedJobsCategoryEnum::class,
+        ];
+    }
 
     public function employer(): BelongsTo
     {
@@ -30,8 +40,8 @@ class Job extends Model
 
     protected $fillable = ['title', 'location', 'salary', 'description', 'experience', 'category'];
 
-    public static array $experience = ['entry', 'intermediate', 'senior'];
     public static array $category = ['It', 'Finance', 'Sales', 'Marketing'];
+    public static array $experience = ['entry', 'intermediate', 'senior'];
 
 
     // a filter scope to filter jobs by name or description, or by salary From min to To max
@@ -60,6 +70,7 @@ class Job extends Model
                 $query->where('category', $category);
             });
     }
+
 
 
     // to make sure that the user has already applied for a specific jjob and cant apply to it again

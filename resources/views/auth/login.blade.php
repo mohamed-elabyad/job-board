@@ -7,7 +7,6 @@
   <x-card class="py-8 px-16">
     <form action="{{ route('login.store') }}" method="POST">
       @csrf
-
       <div class="mb-8">
         <x-label for="email" required="true">E-mail</x-label>
         <x-text-input name="email" placeholder="Email" type='email' />

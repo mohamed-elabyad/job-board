@@ -28,7 +28,6 @@
                     <li>
                         <form method="POST" action="{{route('logout')}}">
                             @csrf
-                            @method('DELETE')
                             <button>Logout</button>
                         </form>
                     </li>
@@ -37,7 +36,7 @@
                     <a href="{{route('register.create')}}">Register</a>
                 </li>
                 <li>
-                    <a href="{{route('login.create')}}">Login</a>
+                    <a href="{{route('login')}}">Login</a>
                 </li>
                 @endauth
             </ul>

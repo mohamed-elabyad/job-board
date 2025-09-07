@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\JobRequest;
+use App\Http\Requests\UpdateJobRequest;
 use App\Models\Job;
 use Gate;
 use Illuminate\Http\Request;
@@ -64,7 +65,7 @@ class MyJobController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(JobRequest $request, Job $myJob)
+    public function update(UpdateJobRequest $request, Job $myJob)
     {
         Gate::authorize('update', $myJob);
 

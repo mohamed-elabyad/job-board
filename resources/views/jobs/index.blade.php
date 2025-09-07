@@ -20,13 +20,13 @@
             <div>
                 <div class="mb-1 font-semibold">Experience</div>
 
-                <x-radio-group name="experience" allOption='true' :options="\App\Models\Job::$experience" />
+                <x-radio-group name="experience" allOption='true' :options="\App\Enums\OfferedJobsExperienceEnum::values()" />
             </div>
 
             <div>
                 <div class="mb-1 font-semibold">Category</div>
 
-                <x-radio-group name="category" allOption='true' :options="\App\Models\Job::$category" />
+                <x-radio-group name="category" allOption='true' :options="\App\Enums\OfferedJobsCategoryEnum::values()" />
             </div>
 
         </div>

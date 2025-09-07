@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Enums\OfferedJobsCategoryEnum;
+use App\Enums\OfferedJobsExperienceEnum;
 use App\Models\Job;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,8 +24,8 @@ class JobFactory extends Factory
             'description' => fake()->paragraphs(3, true),
             'salary' => fake()->numberBetween(50_000, 150_000),
             'location' => fake()->city(),
-            'category' => fake()->randomElement(Job::$category),
-            'experience' => fake()->randomElement(Job::$experience),
+            'category' => fake()->randomElement(OfferedJobsCategoryEnum::values()),
+            'experience' => fake()->randomElement(OfferedJobsExperienceEnum::values()),
         ];
     }
 }

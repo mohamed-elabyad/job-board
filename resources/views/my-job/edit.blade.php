@@ -25,11 +25,11 @@
 
                 <div>
                     <x-label for="experience" required="true">Experience</x-label>
-                    <x-radio-group name="experience" :value="$job->experience" :options="\App\Models\Job::$experience" />
+                    <x-radio-group name="experience" :value="$job->experience" :options="\App\Enums\OfferedJobsExperienceEnum::values()" />
                 </div>
                 <div>
                     <x-label for="category" required="true">Category</x-label>
-                    <x-radio-group name="category" :value="$job->category" :options="\App\Models\Job::$category" />
+                    <x-radio-group name="category" :value="$job->category" :options="\App\Enums\OfferedJobsCategoryEnum::values()" />
                 </div>
 
                 <div class="col-span-2">
