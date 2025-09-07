@@ -121,7 +121,7 @@ It allows users to browse jobs, apply with CVs, and for employers to post and ma
 
 ### 1. Clone the Repository  
 bash:
-git clone https://github.com/your-username/job-board.git
+git clone https://github.com/mohamed-elabyad/job-board.git
 cd job-board
 
 ### 2. Install Dependencies:
@@ -132,10 +132,10 @@ npm install
 
 ### 3. Environment Setup:
 Copy .env.example to .env and update database credentials:
-cp .env.example .env 
+&& cp .env.example .env 
 
-Generate application key:
-php artisan key:generate
+&& Generate application key:
+&& php artisan key:generate
 
 ### 4. Database Setup
 
