@@ -2,6 +2,9 @@
 
 A professional job board web application built with **Laravel 12**, **MySQL**, **Vite**, and **Tailwind CSS 4**.  
 It allows users to browse jobs, apply with CVs, and for employers to post and manage job listings with strict access control and clean component-based UI.  
+---
+
+# Demo: https://jobboard.elabyad.online
 
 ---
 
